@@ -10,8 +10,8 @@ const state = {
   currentIndex: -1,
   disc: {},
   topList: {},
-  // 6 位热门歌手
-  singers: []
+  noteID: ''
+
 }
 
 export default state

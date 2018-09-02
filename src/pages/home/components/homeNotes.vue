@@ -1,8 +1,8 @@
 <template>
   <div class="notes-container">
     <ul>
-      <li v-for="(note, index) in notesList" :key="note.id">
-        <a href='#' class="note" @click="selectItem(note.id, index)" ref="link">
+      <li v-for="note in notesList" :key="note.id" @click="selectItem(note.id)">
+        <div class="note"  ref="link">
           <div class="note-info">
             <h3 class="info-title">{{note.title}}</h3>
             <p class="info-content"></p>
@@ -10,7 +10,7 @@
           <div class="note-img">
             <img :src="note.imageUrl">
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>
@@ -19,6 +19,7 @@
 <script>
 import getTravelNotes from '@/api/travelNotes.js'
 import {ERR_OK} from '@/api/config'
+import { mapMutations } from 'vuex'
 export default {
   name: 'HomeNotes',
   data () {
@@ -37,9 +38,14 @@ export default {
         }
       })
     },
-    selectItem (id, index) {
-      this.$refs.link[index].href = `https://touch.travel.qunar.com/youji/${id}`
-    }
+    selectItem (id) {
+      this.setNoteID(id)
+      this.$router.push(`/note/${id}`)
+      // this.$refs.link[index].href = `https://touch.travel.qunar.com/youji/${id}`
+    },
+    ...mapMutations({
+      setNoteID: 'SET_NOTEID'
+    })
   }
 }
 </script>

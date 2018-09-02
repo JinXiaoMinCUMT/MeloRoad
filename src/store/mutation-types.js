@@ -17,3 +17,5 @@ export const SET_DISC = 'SET_DISC'
 export const SET_TOP_LIST = 'SET_TOP_LIST'
 
 export const SET_SINGERS = 'SET_SINGERS'
+
+export const SET_NOTEID = 'SET_NOTEID'

@@ -4,6 +4,12 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 // 路由懒加载，切换到相应路由时再加载对应代码块
+const NoteDetail = (resolve) => {
+  import('pages/noteDetail/NoteDetail').then((module) => {
+    resolve(module)
+  })
+}
+
 const Music = (resolve) => {
   import('pages/music/music').then((module) => {
     resolve(module)
@@ -80,6 +86,11 @@ export default new Router({
     {
       path: '/',
       redirect: '/home'
+    },
+    {
+      path: '/note/:id',
+      name: 'NoteDetail',
+      component: NoteDetail
     },
     {
       path: '/explore',

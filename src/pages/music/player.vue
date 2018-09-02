@@ -213,7 +213,7 @@ export default {
         .bar
           flex: 1
       .bottom
-        margin-top: 20%
+        margin-top: .9rem
         width: 100%
         .operators
           display: flex

@@ -30,6 +30,9 @@ const mutations = {
   },
   [types.SET_SINGERS] (state, singers) {
     state.singers = singers
+  },
+  [types.SET_NOTEID] (state, noteID) {
+    state.noteID = noteID
   }
 }
 

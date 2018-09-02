@@ -16,9 +16,6 @@ export default {
   components: {
     NavHeader,
     Player
-  },
-  created () {
-    console.log(this.$router)
   }
 }
 </script>
