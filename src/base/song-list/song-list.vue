@@ -45,6 +45,7 @@ export default {
         .name
           font-size: .36rem
           margin-bottom: .2rem
+          no-wrap1()
         .desc
           // margin-right: .5rem
           // width: 80%
