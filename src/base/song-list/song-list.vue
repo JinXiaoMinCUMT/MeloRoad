@@ -43,4 +43,5 @@ export default {
         .desc
           font-szie: .24rem
           color: #888
+          no-wrap-one()
 </style>

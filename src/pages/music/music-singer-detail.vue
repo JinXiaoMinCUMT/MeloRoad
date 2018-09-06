@@ -33,7 +33,7 @@ export default {
     _getSingerDetail (id) {
       // 当在歌手详情页刷新时，会直接跳到歌手页
       if (!this.singer.id) {
-        this.$router.push('/music-singer')
+        this.$router.push('/music/music-singer')
       }
       // 获取QQ音乐接口返回的歌手的详情
       getSingerDetail(id).then((res) => {

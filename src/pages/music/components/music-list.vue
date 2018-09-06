@@ -1,14 +1,13 @@
 <template>
   <div class="music-list">
-    <div class="back">
-      <i class="iconfont icon-left"></i>
-    </div>
-    <h1 class="title" >{{title}}</h1>
-    <div class="bg-image" :style="bgStyle" ref="bgImage"></div>
-    <scroll class="list" ref="list" :data="songs">
-      <div class="song-list-wrapper">
+    <scroll :data="songs" class="scroll">
+      <div>
+      <h1 class="title" >{{title}}</h1>
+      <div class="bg-image" :style="bgStyle" ref="bgImage"></div>
+      <div class="list" ref="list">
         <song-list :songs="songs" @select="selectItem"></song-list>
       </div>
+    </div>
     </scroll>
   </div>
 </template>
@@ -44,11 +43,6 @@ export default {
   components: {
     SongList,
     Scroll
-  },
-  mounted () {
-    // console.log(this.$refs.bgImage.clientHeight)
-    this.$refs.list.$el.style.top = `${this.$refs.bgImage.clientHeight}px`
-    // console.log(this.$refs.list.style.top)
   }
 }
 </script>
@@ -61,39 +55,31 @@ export default {
     bottom: 0
     right: 0
     z-index: 200
-    background: pink
-    .back
-      position absolute
-      top: 6px
-      left: 6px
-      z-index: 10
-      .iconfont
-        color: #fff
-        font-size: .6rem
-    .title
+    background: #fff
+    .scroll
       position: absolute
       top: 0
-      left: 10%
-      width: 80%
-      text-align: center
-      line-height: 40px
-      color: #fff
-      z-index: 10
-      font-size: .4rem
-    .bg-image
-      position: relative
       width: 100%
-      height: 0
-      padding-top: 70%
-      transform-origin: top
-      background-size: cover
-    .list
-      position: fixed
-      top: 0
-      bottom: 0
-      width: 100%
-      background: #fff
-      overflow: hidden
-      .song-list-wrapper
-        padding: .2rem .3rem
+      height: 100%
+      .title
+        position: absolute
+        top: 3rem
+        left: 10%
+        width: 80%
+        text-align: center
+        line-height: 40px
+        color: #fff
+        z-index: 10
+        font-size: .4rem
+      .bg-image
+        width: 100%
+        height: 0
+        padding-top: 70%
+        transform-origin: top
+        background-size: cover
+      .list
+        width: 100%
+        background: #fff
+        overflow: hidden
+
 </style>

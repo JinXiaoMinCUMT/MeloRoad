@@ -31,11 +31,15 @@ export default {
   },
   methods: {
     _getSongList () {
+      // 在歌单详情页的跳转
+      if (!this.disc.dissid) {
+        this.$router.push('/music/music-desc')
+      }
       getSongList(this.disc.dissid).then((res) => {
         if (res.code === ERR_OK) {
           // console.log(res.cdlist[0].songlist)
           this.songs = this.normalizeSongs(res.cdlist[0].songlist)
-          // console.log(this.songs)
+          console.log(this.disc)
         }
       })
     },

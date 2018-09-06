@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <iframe :src="address" id="web" class="note" :width="getWidth" ref="web" :height="getHeight"></iframe>
     <!-- <div ref="web">{{this.addres}}</div> -->
   </div>
@@ -25,11 +25,15 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .note
-    border: 0
+  .wrapper
+    -webkit-overflow-scrolling: touch
+    overflow-y: auto
     position: fixed
     top: -1rem
     bottom: 0
     left: 0
     right: 0
+    .note
+      width: 100%
+      border: 0
 </style>

@@ -11,10 +11,6 @@
       <i class="iconfont icon-music"></i>
       <div class="iconinfo">音乐</div>
     </router-link>
-    <router-link to="/explore" class="icon">
-      <i class="iconfont icon-explore"></i>
-      <div class="iconinfo">探索</div>
-    </router-link>
   </div>
 </template>
 
@@ -39,7 +35,7 @@ export default {
         font-size: .6rem
     .icon
       color: #ccc
-      margin-left: .4rem
+      margin-left: .7rem
       .iconfont
         font-size: .4rem
       .iconinfo

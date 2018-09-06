@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     playIcon () {
-      return this.playing ? 'iconfont icon-play' : 'iconfont icon-pause'
+      return this.playing ? 'iconfont icon-pause' : 'iconfont icon-play'
     },
     ...mapGetters([
       'fullScreen',
@@ -104,6 +104,11 @@ export default {
         index = this.playlist.length - 1
       }
       this.setCurrentIndex(index)
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.$refs.audio.play()
+        this.setPlayingState(true)
+      }, 100)
     },
     next () {
       let index = this.currentIndex + 1
@@ -111,9 +116,15 @@ export default {
         index = 0
       }
       this.setCurrentIndex(index)
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.$refs.audio.play()
+        this.setPlayingState(true)
+      }, 100)
     },
     togglePlaying () {
-      if (this.playing) {
+      // 当前不在播放，调播放方法
+      if (!this.playing) {
         this.$refs.audio.play()
       } else {
         this.$refs.audio.pause()
@@ -137,10 +148,13 @@ export default {
   watch: {
     // 监听 currentSong 数据变化，变化时调用 audio 的 play 方法
     currentSong () {
-      clearTimeout(this.timer)
-      this.timer = setTimeout(() => {
-        this.$refs.audio.play()
-      }, 1000)
+      if (this.playing) {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
+          this.$refs.audio.play()
+          this.setPlayingState(true)
+        }, 100)
+      }
     }
   }
 }

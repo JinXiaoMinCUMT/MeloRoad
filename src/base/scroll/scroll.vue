@@ -74,7 +74,10 @@ export default {
         })
       }
     },
+    // 代理 better-scroll 的方法
     disable () {
+      // 如果第一个为真，才会去调用第二个
+      // 如果 scroll 存在，执行 this.scroll.disable()
       this.scroll && this.scroll.disable()
     },
     enable () {
@@ -91,6 +94,7 @@ export default {
     }
   },
   watch: {
+    // 监控 data 变化，当数据变化时，调用 refresh 重新计算 scroll 高度
     data () {
       setTimeout(() => {
         this.refresh()

@@ -52,20 +52,8 @@ const MusicSinger = (resolve) => {
   })
 }
 
-const MusicSearch = (resolve) => {
-  import('pages/music/music-search').then((module) => {
-    resolve(module)
-  })
-}
-
 const MusicHome = (resolve) => {
   import('pages/music/music-home').then((module) => {
-    resolve(module)
-  })
-}
-
-const Explore = (resolve) => {
-  import('pages/explore/explore').then((module) => {
     resolve(module)
   })
 }
@@ -91,11 +79,6 @@ export default new Router({
       path: '/note/:id',
       name: 'NoteDetail',
       component: NoteDetail
-    },
-    {
-      path: '/explore',
-      name: 'Explore',
-      component: Explore
     },
     {
       path: '/music',
@@ -145,17 +128,6 @@ export default new Router({
           ]
         }
 
-      ]
-    },
-    {
-      path: '/music-search',
-      name: 'MusicSearch',
-      component: MusicSearch,
-      children: [
-        {
-          path: ':id',
-          component: MusicSingerDetail
-        }
       ]
     }
   ]

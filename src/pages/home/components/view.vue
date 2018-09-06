@@ -1,15 +1,15 @@
 <template>
   <div class="show-container">
-    <div class="show-slogan">你身边的植物都在这</div>
-    <div class="show-detail">点击「探索」按钮来寻觅你身边的植物，点击「分享」按钮来传播你所见的美好</div>
-    <div class="show-btns">
+    <div class="show-slogan">灵魂和身体总要一个在路上</div>
+    <div class="show-detail"></div>
+<!--     <div class="show-btns">
       <router-link to='/explore'>
-        <div class="explore-btn">探索</div>
+        <div class="explore-btn">旅行</div>
       </router-link>
-      <router-link to='/share'>
-        <div class="upload-btn">分享</div>
+      <router-link to='/music/music-home'>
+        <div class="upload-btn">灵魂</div>
       </router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 

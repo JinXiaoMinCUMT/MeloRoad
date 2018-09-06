@@ -8,7 +8,7 @@
             <p class="info-content"></p>
           </div>
           <div class="note-img">
-            <img :src="note.imageUrl">
+            <img v-lazy="note.imageUrl">
           </div>
         </div>
       </li>

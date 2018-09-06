@@ -5,7 +5,7 @@
           <mt-swipe>
             <mt-swipe-item v-for="item in recommends" :key="item.id">
               <a :href="item.linkUrl">
-                <img :src="item.picUrl">
+                <img v-lazy="item.picUrl">
               </a>
             </mt-swipe-item>
           </mt-swipe>
@@ -17,9 +17,9 @@
           </div>
           <div class="card-body">
             <ul class="items">
-              <li class="item" v-for="item in discList.slice(0, 6)" :key="item.dissid" @click="selectItem(item)">
+              <li class="item" v-for="item in discList" :key="item.dissid" @click="selectItem(item)">
                 <div class="img-wrapper">
-                  <img :src="item.imgurl">
+                  <img v-lazy="item.imgurl">
                 </div>
                 <div class="desc-wrapper">
                   <span>{{item.dissname}}</span>
@@ -37,7 +37,7 @@
             <ul class="items">
               <li class="item" v-for="item in singers" :key="item.id" @click="selectSinger(item)">
                 <div class="img-wrapper">
-                  <img :src="item.avater">
+                  <img v-lazy="item.avater">
                 </div>
                 <div class="desc-wrapper">
                   <span>{{item.name}}</span>
@@ -89,7 +89,7 @@ export default {
     _getDiscList () {
       getDiscList().then((res) => {
         if (res.code === ERR_OK) {
-          this.discList = res.data.list
+          this.discList = res.data.list.slice(0, 6)
         }
       })
     },
@@ -161,6 +161,7 @@ export default {
       this.setDisc(list)
     },
     selectSinger (singer) {
+      // console.log(singer)
       this.setSinger(singer)
       this.$router.push({
         path: `/music/music-singer/${singer.id}`

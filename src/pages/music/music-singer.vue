@@ -1,6 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
     <div class="music-singer">
       <scroll :data="singers" class="wrapper">
         <ul>
@@ -15,6 +14,7 @@
           </li>
         </ul>
       </scroll>
+      <router-view></router-view>
     </div>
   </div>
 </template>
