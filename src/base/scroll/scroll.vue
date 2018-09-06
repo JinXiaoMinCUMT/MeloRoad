@@ -38,7 +38,7 @@ export default {
       default: 20
     }
   },
-  mounted () {
+  activated () {
     setTimeout(() => {
       this._initScroll()
     }, 20)
