@@ -58,8 +58,11 @@ export default {
       return ret
     }
   },
-  created () {
+  activated () {
     this._getSingerDetail(this.singer.id)
+  },
+  deactivated () {
+    this.songs = []
   }
 }
 </script>

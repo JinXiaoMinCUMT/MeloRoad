@@ -53,8 +53,11 @@ export default {
       return ret
     }
   },
-  created () {
+  activated () {
     this._getSongList()
+  },
+  deactivated () {
+    this.songs = []
   }
 }
 </script>

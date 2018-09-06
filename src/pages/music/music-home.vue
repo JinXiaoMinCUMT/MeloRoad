@@ -172,7 +172,7 @@ export default {
       setSinger: 'SET_SINGER'
     })
   },
-  created () {
+  activated () {
     this._getRecommend()
     this._getDiscList()
     this._getSingerList()

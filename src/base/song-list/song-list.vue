@@ -28,20 +28,28 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="stylus" rel="stylesheet/stylus">
+  @import "~assets/styles/mixin.styl"
   .song-list
+    margin-left: .4rem
+    margin-top: .3rem
     .item
       display: flex
       align-items: center
       box-sizing: border-box
       height: 1.2rem
+      margin: .1rem 0
       .content
-        padding-left: .4rem
+        width: 90%
+        // margin: 0 .4rem
         .name
           font-size: .36rem
           margin-bottom: .2rem
         .desc
+          // margin-right: .5rem
+          // width: 80%
           font-szie: .24rem
           color: #888
-          no-wrap-one()
+          // display: block
+          no-wrap1()
 </style>

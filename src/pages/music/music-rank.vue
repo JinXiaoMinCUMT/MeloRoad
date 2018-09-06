@@ -15,7 +15,9 @@
         </li>
       </ul>
     </scroll>
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -52,7 +54,7 @@ export default {
       setTopList: 'SET_TOP_LIST'
     })
   },
-  created () {
+  activated () {
     this._getTopList()
   }
 }

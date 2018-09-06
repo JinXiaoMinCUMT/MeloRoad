@@ -14,7 +14,9 @@
           </li>
         </ul>
       </scroll>
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -26,7 +28,7 @@ import Singer from 'assets/js/singer.js'
 import Scroll from '@/base/scroll/scroll'
 import { mapMutations } from 'vuex'
 
-const HOT_NAME = '热门数据'
+const HOT_NAME = '热门歌手'
 const HOT_SINGER_LEN = 10
 
 export default {
@@ -105,7 +107,7 @@ export default {
       // setSingers: 'SET_SINGERS'
     })
   },
-  created () {
+  activated () {
     this._getSingerList()
   }
 }
@@ -124,7 +126,9 @@ export default {
           height: .6rem
           line-height: .6rem
           padding-left: .4rem
-          font-size: .2rem
+          font-size: .3rem
+          // font-weight: 600
+          color: #888
         .list-group-item
           display: flex
           align-items: center

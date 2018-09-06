@@ -20,8 +20,11 @@ export default {
   components: {
     MusicList
   },
-  created () {
+  activated () {
     this._getMusicList()
+  },
+  deactivated () {
+    this.songs = []
   },
   computed: {
     ...mapGetters(['topList']),
